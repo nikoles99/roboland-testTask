@@ -1,0 +1,11 @@
+#message {
+  color: chartreuse;
+}
+
+#log {
+  background: black;
+  position: absolute;
+  height:40%;
+  overflow-y: auto;
+  border-color: black;
+}

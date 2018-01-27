@@ -1,0 +1,17 @@
+com/nik/roboland/Application.class
+com/nik/roboland/config/AppConfig.class
+com/nik/roboland/service/ProgressTaskEstimatorService.class
+com/nik/roboland/service/InitService.class
+com/nik/roboland/service/ActivityTracker.class
+com/nik/roboland/service/DeadRobotFinderService.class
+com/nik/roboland/config/SecurityConfig.class
+com/nik/roboland/domain/Robot.class
+com/nik/roboland/domain/UniversalRobot.class
+com/nik/roboland/config/WebSocketConfiguration.class
+com/nik/roboland/utils/RobotUtils.class
+com/nik/roboland/utils/TaskUtils.class
+com/nik/roboland/controllers/RobotsController$RequestContent.class
+com/nik/roboland/utils/ActivityLogger.class
+com/nik/roboland/controllers/RobotsController$RequestContent$RequestContentBuilder.class
+com/nik/roboland/domain/Task.class
+com/nik/roboland/controllers/RobotsController.class

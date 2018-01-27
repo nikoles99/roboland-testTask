@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+#from_to_stations {
+  text-align: center;
+}
+
+#search_schedule_button{
+  text-align: center;
+}
+
+.table-striped-own > tbody > tr:nth-of-type(odd) {
+  background-color: #FFE6E5;
+}
+
+.jumbotron {
+  background-image: url('assets/logo.png');
+  background-repeat: no-repeat;
+  background-position: 40% -140px;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+footer{
+  background-color: rgba(13,39,51,0.65)
+}
+
+
+

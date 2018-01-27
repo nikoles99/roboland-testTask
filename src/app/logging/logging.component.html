@@ -1,0 +1,8 @@
+<div [ngStyle]="{'margin-top':'15px'}">
+  <label>Activity Logs:</label>
+  <div class="form-control" id="log">
+    <ng-template ngFor let-message [ngForOf]="logs">
+      <div id="message">{{message}}</div>
+    </ng-template>
+  </div>
+</div>

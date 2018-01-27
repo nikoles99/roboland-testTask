@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="form-group">
+      <label for="robots">Select Robot:</label>
+      <select #robot [ngModel]="selectedRobot" (change)="setSelectedRobot(robot.value)" class="form-control" id="robots">
+        <ng-template ngFor let-robot [ngForOf]="robots">
+          <option>{{robot}}</option>
+        </ng-template>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="comment">Input task:</label>
+      <textarea [(ngModel)]="task" class="form-control" rows="1" id="comment" maxlength="30">{{task}}</textarea>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-2">
+    <button type="button" class="btn btn-warning" (click)="addTask()">Add task to robot</button>
+  </div>
+  <div class="col-lg-2">
+    <button type="button" class="btn btn-info" (click)="addTaskToAllRobots()">Add task to all robots</button>
+  </div>
+  <div class="col-lg-6" id="message" *ngIf="message">{{message}}</div>
+</div>
