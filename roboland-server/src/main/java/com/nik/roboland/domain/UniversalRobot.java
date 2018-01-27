@@ -1,7 +1,6 @@
 package com.nik.roboland.domain;
 
 import com.nik.roboland.utils.ActivityLogger;
-import org.springframework.scheduling.annotation.Async;
 
 import java.util.Iterator;
 import java.util.Random;
@@ -17,9 +16,9 @@ public class UniversalRobot extends Robot {
   @Override
   public CompletableFuture<Void> processTasks() {
     ActivityLogger.log("Robot " + name + " start working");
-    Random random = new Random();
-    int i = random.nextInt(10);
-    synchronized (tasks) {
+    while (true) {
+      Random random = new Random();
+      int i = random.nextInt(10);
       Iterator<Task> iterator = tasks.iterator();
       while (iterator.hasNext()) {
         Task task = iterator.next();
@@ -29,11 +28,10 @@ public class UniversalRobot extends Robot {
           return null;
         }
         process(task);
-        iterator.remove();
+        tasks.remove(task);
+        ActivityLogger.log("Robot " + name + " finished all tasks");
       }
     }
-    ActivityLogger.log("Robot " + name + " finished all tasks");
-    return null;
   }
 
   // imitate robot working
@@ -44,6 +42,9 @@ public class UniversalRobot extends Robot {
         Thread.currentThread().sleep(workTime * 1000);
         task.setWorkTime(workTime);
         task.setExecutionProcess((int) (workTime * 100 / task.getTimeForTask()));
+        synchronized (task) {
+          task.wait();
+        }
       }
       ActivityLogger.log("Robot " + name + " finished task: " + task.getName());
     } catch (InterruptedException e) {

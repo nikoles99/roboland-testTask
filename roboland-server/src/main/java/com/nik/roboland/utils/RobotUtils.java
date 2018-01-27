@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class RobotUtils {
 
-  public static final int MAX_ROBOTS_COUNT = 70;
+  public static final int MAX_ROBOTS_COUNT = 30;
 
   public static final String[] NAMES = {"Jacob", "Michael", "Joshua", "Matthew", "Ethan", "Andrew", "Daniel",
     "Anthony", "Christopher", "Joseph", "William", "Alexander", "Ryan", "David", "Nicholas", "Tyler", "James",

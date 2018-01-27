@@ -25,17 +25,18 @@ public class ProgressTaskEstimatorService {
   @Async
   public Comparable<?> process(List<Task> tasks, Map<String, Robot> robots) {
     while (true) {
-      synchronized (tasks) {
-        Iterator<Task> iterator = tasks.iterator();
-        while (iterator.hasNext()) {
-          Task task = iterator.next();
+      Iterator<Task> iterator = tasks.iterator();
+      while (iterator.hasNext()) {
+        Task task = iterator.next();
 
-          long remainingTime = task.getRemainingTime();
-          long timeForTask = task.getTimeForTask();
-          long spendTime = timeForTask - remainingTime;
-          if (spendTime != 0) {
-            addRobotForHelp(robots, task, remainingTime, spendTime);
-          }
+        long remainingTime = task.getRemainingTime();
+        long timeForTask = task.getTimeForTask();
+        long spendTime = timeForTask - remainingTime;
+        if (spendTime != 0 && robots.size() < RobotUtils.MAX_ROBOTS_COUNT) {
+          addRobotForHelp(robots, task, remainingTime, spendTime);
+        }
+        synchronized (task) {
+          task.notifyAll();
         }
       }
     }

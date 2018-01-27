@@ -7,17 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.Collections;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Collectors;
 
 @Service
 public class ActivityTracker {
 
-  private List<Task> tasks = Collections.synchronizedList(new LinkedList<>());
+  private List<Task> tasks = new CopyOnWriteArrayList();
   private Map<String, Robot> robots = new ConcurrentHashMap();
 
   @Autowired

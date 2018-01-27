@@ -2,14 +2,13 @@ package com.nik.roboland.domain;
 
 import com.nik.roboland.utils.ActivityLogger;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class Robot {
-  protected List<Task> tasks = Collections.synchronizedList(new ArrayList());
+  protected List<Task> tasks = new CopyOnWriteArrayList<>();
   protected String name;
   private Boolean alive = true;
 
@@ -24,7 +23,9 @@ public abstract class Robot {
     if (alive) {
       tasks.add(task);
       ActivityLogger.log("Robot " + name + " get a new task - '" + task.getName() + "'");
-      new Thread(this::processTasks).start();
+      if (tasks.size() == 1) {
+        new Thread(() -> processTasks()).start();
+      }
     }
   }
 
@@ -46,13 +47,13 @@ public abstract class Robot {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     Robot robot = (Robot) o;
-    return Objects.equals(tasks, robot.tasks) &&
-      Objects.equals(name, robot.name) &&
+    return Objects.equals(name, robot.name) &&
       Objects.equals(alive, robot.alive);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(tasks, name, alive);
+
+    return Objects.hash(name, alive);
   }
 }

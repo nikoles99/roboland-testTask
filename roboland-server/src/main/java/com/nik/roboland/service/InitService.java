@@ -17,7 +17,7 @@ import java.util.*;
 public class InitService {
 
   private static int i = 0;
-  private List<Task> tasks;
+  private List<Task> tasks = new ArrayList<>();
   private Map<String, Robot> robots;
 
   @Autowired
