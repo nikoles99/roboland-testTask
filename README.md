@@ -24,9 +24,11 @@ Step 1. Set up the Development Environment
 
 You need to set up your development environment before you can do anything.
 
-Install Node.js® and npm if they are not already on your machine - https://nodejs.org/en/download/.
+Install Node.js® and npm if they are not already on your machine 
+- https://nodejs.org/en/download/.
 
-Step 2.install the Angular CLI globally - npm install -g @angular/cli
+Step 2.install the Angular CLI globally 
+- npm install -g @angular/cli
 
 Step 3: Package the server application
 - mvn install
@@ -41,5 +43,5 @@ Step 5: Launch the server application
 
 Step 6: Launch the client application
 
-- npn start
+- npm start
 - open http://localhost:4200/ in your browser.
