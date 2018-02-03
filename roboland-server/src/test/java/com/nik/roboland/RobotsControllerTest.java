@@ -2,6 +2,7 @@ package com.nik.roboland;
 
 import com.nik.roboland.controllers.RobotsController;
 import lombok.SneakyThrows;
+import org.hamcrest.core.IsNull;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,8 +29,8 @@ public class RobotsControllerTest extends AbstractControllerTest {
       .andDo(print());
     // Then
     resultActions
-      .andExpect(status().isOk());
-      //.andExpect(jsonPath("$", hasSize(20)));
+      .andExpect(status().isOk())
+      .andExpect(jsonPath("$").value(IsNull.notNullValue()));
   }
 
   @Test
