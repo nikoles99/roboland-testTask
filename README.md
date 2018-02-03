@@ -1,16 +1,41 @@
-# ASURailwayStation
+# Roboland
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+These instructions will get you a copy of the project up and running on your local machine for development.
 
-## Code scaffolding
+## Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
+(npm -v 5.6.0; nodeJS -v 6.11.2)  - https://nodejs.org/en/download/;
 
-## Build
+@angular/cli -v 1.6.0;
+
+typescript -v 2.4.2;
+
+spring-boot -v 1.5.2.RELEASE
+
+lombok -v 1.16.20
+
+## Installing
+
+Step 1. Set up the Development Environment
+
+You need to set up your development environment before you can do anything.
+
+Install Node.js® and npm if they are not already on your machine - https://nodejs.org/en/download/.
+
+Step 2.install the Angular CLI globally - npm install -g @angular/cli
+
+Step 3: Launch the client application
+
+- npm install
+- npn start
+
+open http://localhost:4200/ in your browser.
+
+Step 4: Launch the server application
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
