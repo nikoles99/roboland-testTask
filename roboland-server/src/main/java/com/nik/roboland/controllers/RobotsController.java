@@ -1,21 +1,17 @@
 package com.nik.roboland.controllers;
 
-import com.nik.roboland.domain.Robot;
 import com.nik.roboland.service.ActivityTracker;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -25,7 +21,7 @@ public class RobotsController {
   @NoArgsConstructor
   @Builder
   @AllArgsConstructor
-  private static class RequestContent {
+  public static class RequestContent {
     private String task;
     private String robotName;
   }
